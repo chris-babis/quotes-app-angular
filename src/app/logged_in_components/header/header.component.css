@@ -1,0 +1,29 @@
+.container {
+  margin-top: 2rem;
+}
+
+.quotes-redirect{
+  color: white;
+  cursor: pointer;
+}
+
+.active {
+  background-color:white;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+
+.logoutBtn{
+  background-color: transparent;
+  color: white;
+  border:0;
+  cursor: pointer;
+}
+
+mat-icon {
+  font-size: 32px;
+  padding-right: 2rem;
+}
+

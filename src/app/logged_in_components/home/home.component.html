@@ -1,0 +1,20 @@
+<div *ngIf="quotes.length < 1">
+  <p>There are no quotes.</p>
+</div>
+
+<div *ngIf="quotes.length > 0">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let quote of quotes; let i = index;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        Quote #{{i+1}}: {{quote.quote}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="author">Author: {{quote.author}}</p>
+      <small class="author">Uploaded By: {{quote.uploadedBy.username}}</small>
+      <mat-action-row>
+        <button mat-button color="primary" class="text-right" (click)="likeQuote(quote._id)"><mat-icon aria-hidden="false">thumb_up</mat-icon></button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+  <a class="navbar-brand" [routerLink]="['/user']">QuotesAPP</a>
+  <a class="mr-auto quotes-redirect" [routerLink]="['/user/me']" routerLinkActive="active">My Quotes</a>
+  <mat-icon (click)="onLogout()" class="logoutBtn"  ngbTooltip="Logout" placement="bottom">exit_to_app</mat-icon>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

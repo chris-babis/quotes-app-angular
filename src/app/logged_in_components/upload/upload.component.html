@@ -1,0 +1,27 @@
+<div class="upload-page">
+  <div class="row">
+    <form (ngSubmit)="onUpload(uploadForm)" #uploadForm="ngForm" class="form-group col-sm-12 col-xl-6">
+      <mat-form-field>
+        <mat-label>Enter the author...</mat-label>
+        <input type="text" matInput name="author" ngModel #authorControl="ngModel" required>
+        <mat-error *ngIf="authorControl.invalid && authorControl.touched">Author is required.</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Select Category</mat-label>
+        <mat-select #categoryControl="ngModel" name="category" ngModel required >
+          <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Enter your quote...</mat-label>
+        <textarea type="text" matInput name="quote" ngModel #quoteControl="ngModel" required cols="20" rows="10"></textarea>
+        <mat-error *ngIf="quoteControl.invalid && quoteControl.touched">Quote is required.</mat-error>
+      </mat-form-field>
+      <br>
+      <button class="btn btn-primary" [disabled]="uploadForm.invalid">Upload</button>
+    </form>
+  </div>
+</div>

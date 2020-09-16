@@ -1,0 +1,26 @@
+<div *ngIf="quotes.length < 1">
+  <p>You haven't uploaded any quotes yet</p>
+</div>
+
+<div *ngIf="quotes.length > 0">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let quote of quotes; let i = index;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Quote #{{i+1}}
+        </mat-panel-title>
+        <mat-panel-description>
+        Status: {{quote.awaiting === true ? 'Awaiting':'Accepted'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p class="quote">{{quote.quote}}</p>
+      <small class="author">Author: {{quote.author}}</small>
+      <mat-action-row>
+        <button mat-button color="warn" class="text-right" (click)="deleteQuote(quote._id)"><mat-icon aria-hidden="false">delete</mat-icon></button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<button [routerLink]="['../upload']" class="uploadBtn">Upload New Quote</button>
+<button *ngIf="userRole === 'Admin'" [routerLink]="['../awaiting']" class="uploadBtn">Check Awaiting Quotes</button>

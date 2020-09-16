@@ -1,0 +1,39 @@
+<div class="user-page">
+  <form class="form-group" (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+    <p class="header-text">{{header}}</p>
+    <mat-form-field >
+      <mat-label>Enter your username</mat-label>
+      <input type="text" matInput name="username" ngModel #usernameControl="ngModel" required minlength="6">
+      <mat-error *ngIf="usernameControl.invalid && usernameControl.touched">Username required with at least 6 characters.</mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <mat-label>Enter your password</mat-label>
+      <input type="password" matInput name="password" ngModel #passwordControl="ngModel" #passwordvalue required minlength="6">
+      <mat-error *ngIf="passwordControl.invalid && passwordControl.touched">Password required with at least 6 characters.</mat-error>
+    </mat-form-field>
+
+    <br *ngIf="page_mode === 'register'">
+    <mat-form-field *ngIf="page_mode === 'register'">
+      <mat-label>Re-Enter your password</mat-label>
+      <input type="password" matInput name="repassword" ngModel #repasswordControl="ngModel" #repasswordvalue required minlength="6">
+      <mat-error
+        *ngIf="repasswordControl.invalid &&
+              passwordControl.touched &&
+              repasswordvalue !== passwordvalue &&
+              repasswordControl.touched">
+              Passwords dont match.
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-error *ngIf="error">{{error}}</mat-error>
+    <button class="btn btn-primary" [disabled]="registerForm.invalid"  [title]="registerForm.invalid ? 'All fields required' : ''">{{buttonText}}</button>
+    <a *ngIf="page_mode === 'register'" class="redirect-link" [routerLink]="['/login']">Want to login? Click here.</a>
+    <a *ngIf="page_mode !== 'register'" class="redirect-link" [routerLink]="['/register']">Want to register? Click here.</a>
+
+
+  </form>
+
+</div>
+

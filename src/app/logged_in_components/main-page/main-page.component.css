@@ -1,0 +1,33 @@
+.uploadBtn {
+  margin:2rem 1rem 0rem 0rem;
+  background-color: transparent;
+  padding: 1rem 0.8rem;
+  box-shadow: 5px 10px 10px black;
+  transition: all .5s ease;
+}
+
+.uploadBtn:hover{
+  background-color: rgb(78, 78, 78);
+
+  color: white;
+  box-shadow: 5px 10px 10px gray;
+}
+
+.quote {
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+}
+
+.author {
+  font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .quote {
+    font-size: 1rem;
+  }
+
+  .author {
+    font-size: 0.7rem;
+  }
+}
